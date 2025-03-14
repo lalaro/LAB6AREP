@@ -2,11 +2,11 @@
 
 Para clonar el proyecto 
 
-Para el Backend:
+El repositorio principal:
 
 git clone  ´ https://github.com/lalaro/LAB6AREP.git ´
 
-Para el frontend:
+Para el proyecto en Apache:
 
 git clone  ´ https://github.com/lalaro/LoginFrontend.git ´
 
@@ -70,7 +70,11 @@ Yo diseñé e implementé una aplicación segura y escalable en AWS, enfocándom
 
 ### *Arquitectura del sistema:*
 
+![image28.jpeg](src/main/resources/images/installation/image28.jpeg)
+
 ### *Detalle de la arquitectura:*
+
+La infraestructura desplegada en AWS EC2 utiliza contenedores Docker para gestionar tanto el frontend como el backend. El cliente web se comunica con el servidor a través de una conexión segura TLS (HTTPS) en el puerto 42000, garantizando la protección de los datos transmitidos. Las peticiones llegan a un servidor Apache, que sirve el frontend basado en HTML, CSS y JavaScript. Este frontend interactúa con un backend en Spring Boot, alojado en el mismo servidor y expuesto en el puerto 35000, el cual procesa las solicitudes y responde con códigos HTTP estándar (200, 201, 400, etc.). La arquitectura utiliza contenedores Docker para desplegar tanto el backend como el sistema de autenticación AppLogin, donde los usuarios validan sus credenciales mediante TLS. Estos contenedores son construidos y desplegados con Docker, asegurando escalabilidad y facilidad de gestión.
 
 ### *Descripción de la relación entre Apache, Spring y el cliente HTML+JS:*
 
