@@ -46,6 +46,8 @@ Revisar las rutas de la máquina
 
 `  java -version `
 
+![image23.jpeg](src/main/resources/images/installation/image23.jpeg)
+
 ## Solución del lab
 
 En este taller, diseñaremos e implementaremos una aplicación segura y escalable utilizando la infraestructura de AWS, centrándonos en las mejores prácticas de seguridad. Nuestra arquitectura constará de dos componentes principales:
@@ -174,12 +176,64 @@ O de igual forma en el ID que deseemos.
 
 Así se vera:
 
+![image26.jpeg](src/main/resources/images/installation/image26.jpeg)
+![image27.jpeg](src/main/resources/images/installation/image27.jpeg)
 
 ### Desglose en pruebas de extremo a extremo
 
+1. testValidateUser_Failure
+
+Qué prueba: Verifica que la validación de un usuario con una contraseña incorrecta falle.
+Por qué la prueba: Asegura que el sistema no permite el acceso con credenciales incorrectas, protegiendo así la autenticación.
+
+2. testValidateUserSuccess
+
+Qué prueba: Verifica que un usuario con credenciales correctas pueda autenticarse correctamente.
+Por qué la prueba: Confirma que el sistema autentica correctamente a los usuarios cuando proporcionan las credenciales adecuadas.
+
+3. testValidateUserFailure_WrongPassword
+
+Qué prueba: Comprueba que un usuario con nombre válido pero contraseña incorrecta no pueda autenticarse.
+Por qué la prueba: Garantiza que las credenciales incorrectas no permitan acceso al sistema.
+
+4. testValidateUserFailure_UserNotFound
+
+Qué prueba: Verifica que un usuario inexistente no pueda autenticarse.
+Por qué la prueba: Asegura que solo los usuarios registrados puedan acceder al sistema.
+
+5. testValidateUserWithNullPassword
+
+Qué prueba: Verifica que el sistema maneje correctamente una contraseña nula en la autenticación.
+Por qué la prueba: Evita posibles errores o vulnerabilidades por valores nulos en las credenciales.
+
+6. testValidateUserWithIncorrectPassword
+
+Qué prueba: Asegura que una contraseña incorrecta no permita el acceso.
+Por qué la prueba: Protege contra intentos de acceso con credenciales incorrectas.
+
+7. testValidateUserWithNonExistentUsername
+
+Qué prueba: Comprueba que un nombre de usuario inexistente no pueda autenticarse.
+Por qué la prueba: Previene accesos indebidos con nombres de usuario no registrados.
+
+8. testValidateUserWithIncorrectPassword2
+
+Qué prueba: Similar a testValidateUserWithIncorrectPassword, valida el rechazo de contraseñas incorrectas.
+Por qué la prueba: Refuerza la validación de seguridad en autenticaciones fallidas.
+
+9. testValidateUserWithNonExistentUsername2
+
+Qué prueba: Similar a testValidateUserWithNonExistentUsername, verifica que usuarios inexistentes sean rechazados.
+Por qué la prueba: Garantiza que solo usuarios registrados puedan autenticarse.
+
+10. testValidateUserWithHashedPasswordMismatch
+
+Qué prueba: Verifica que un usuario con una contraseña incorrecta y una versión hash diferente no pueda autenticarse.
+Por qué la prueba: Asegura que las contraseñas se comparan correctamente utilizando hashing, protegiendo la autenticación.
 
 ### Y pruebas de estilo de código
 
+Las pruebas realizadas verifican la seguridad del proceso de autenticación en la aplicación, asegurando que solo los usuarios con credenciales correctas puedan acceder. Se evaluaron distintos escenarios, incluyendo contraseñas incorrectas, usuarios inexistentes, valores nulos y comparaciones de contraseñas encriptadas. Estas pruebas garantizan que el sistema maneje correctamente los intentos de autenticación fallidos, evitando accesos no autorizados y fortaleciendo la seguridad de la aplicación.
 
 ## Despliegue
 
@@ -191,8 +245,10 @@ Podemos Abrir en terminal el proyecto y compilar y empaquetar el proyecto desde 
 
 O de igual forma en el ID que deseemos.
 
-Cabe recalcalcar que se pueden generar Advertencias, porque ya no está conectada la base de datos.
+Así se verá:
 
+![image24.jpeg](src/main/resources/images/installation/image24.jpeg)
+![image25.jpeg](src/main/resources/images/installation/image25.jpeg)
 
 ## Construido con
 
@@ -203,6 +259,7 @@ Cabe recalcalcar que se pueden generar Advertencias, porque ya no está conectad
 * [AWS](https://docs.aws.amazon.com/es_es/) - Amazon Web Services / plataforma de servicios de nube.
 * [Docker](https://docs.docker.com/) - Tecnología en contenedores que permite crear y usar contenedores Linux.
 * [Spring Boot](https://docs.spring.io/spring-boot/index.html) -Herramienta de código abierto para desarrollar aplicaciones web y microservicios en Java
+* [Apache](https://httpd.apache.org/docs/) -Es un servidor web de código abierto y gratuito que se utiliza para alojar sitios web
 
 ## Contribuyendo
 
