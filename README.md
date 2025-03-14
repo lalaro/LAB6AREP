@@ -2,11 +2,17 @@
 
 Para clonar el proyecto 
 
-git clone  ´ https://github.com/lalaro/LAB3ARCN.git ´
+Para el Backend:
+
+git clone  ´ https://github.com/lalaro/LAB6AREP.git ´
+
+Para el frontend:
+
+git clone  ´ https://github.com/lalaro/LoginFrontend.git ´
 
 ### Prerrequisitos
 
-Se necesita de Maven (La versión más reciente) y Java 23, la instalación debe realizarse desde las paginas oficiales de cada programa.
+Se necesita de Maven (La versión más reciente) y Java 21, la instalación debe realizarse desde las paginas oficiales de cada programa.
 
 ### Instalación
 
@@ -58,6 +64,7 @@ Este taller guiará a los participantes en el proceso de integración de estas m
 
 ### *Resumen del proyecto:*
 
+Yo diseñé e implementé una aplicación segura y escalable en AWS, enfocándome en las mejores prácticas de seguridad. Configuré un servidor Apache para servir un cliente HTML+JavaScript asíncrono a través de una conexión segura con TLS, asegurando la integridad y confidencialidad de los datos. Además, desarrollé un backend con Spring Framework que ofrece endpoints API RESTful protegidos con TLS para garantizar una comunicación segura. Implementé cifrado TLS con certificados de Let's Encrypt, un cliente asíncrono para mejorar el rendimiento, y un sistema de autenticación con almacenamiento seguro de contraseñas en forma de hashes. Finalmente, desplegué todos los servicios en AWS, aprovechando su infraestructura confiable para garantizar la seguridad y escalabilidad del sistema.
 
 ### *Arquitectura del sistema:*
 
@@ -65,15 +72,93 @@ Este taller guiará a los participantes en el proceso de integración de estas m
 
 ### *Descripción de la relación entre Apache, Spring y el cliente HTML+JS:*
 
+La relación entre Apache, Spring y el cliente HTML+JavaScript sigue un modelo cliente-servidor con una capa de seguridad basada en TLS.
+
+a. Apache como servidor web: Apache se encarga de servir los archivos estáticos del cliente, es decir, el código HTML, CSS y JavaScript. Además, establece una conexión segura mediante TLS, asegurando que la comunicación entre el usuario y el cliente web sea cifrada y protegida.
+
+b. Cliente HTML+JavaScript: El cliente, ejecutado en el navegador, interactúa con el servidor backend mediante peticiones asíncronas (AJAX o Fetch API). Se comunica con los endpoints RESTful expuestos por Spring para obtener o enviar datos.
+
+c. Spring como backend: Spring Framework maneja la lógica del servidor, procesando las solicitudes del cliente y respondiendo con datos en formato JSON. Además, protege las conexiones con TLS y gestiona la autenticación de usuarios mediante almacenamiento seguro de credenciales.
+
+En conjunto, Apache distribuye la interfaz del cliente, que se conecta asíncronamente con Spring, garantizando una arquitectura modular, segura y escalable.
+
 ### *Implementación segura en AWS:*
+
+Para garantizar una implementación segura en AWS, desplegué los servicios siguiendo las mejores prácticas de seguridad. Configuré Apache en una instancia EC2 para servir los archivos HTML+JavaScript de forma segura, utilizando certificados TLS de Let's Encrypt para cifrar la comunicación. El backend con Spring Framework se ejecuta en otra instancia EC2, asegurando un entorno aislado dentro de una VPC (Virtual Private Cloud) protegida.
 
 ### *Uso de TLS para conexiones seguras entre el cliente, Apache y Spring:*
 
+Para garantizar conexiones seguras entre el cliente, Apache y Spring, implementé TLS (Transport Layer Security) en toda la comunicación. Configuré Apache con un certificado TLS de Let's Encrypt, permitiendo que el cliente HTML+JavaScript se conecte mediante HTTPS, asegurando la integridad y confidencialidad de los datos y protegiéndolos contra ataques como man-in-the-middle (MITM). Además, Apache actúa como proxy inverso, reenviando las solicitudes del cliente al backend en Spring a través de una conexión segura con TLS habilitado, evitando que datos sensibles sean interceptados. Gracias a esta implementación, toda la comunicación entre el cliente y el backend viaja cifrada y autenticada, asegurando una infraestructura segura y confiable.
+
 ### *Funcionalidad de inicio de sesión con contraseñas almacenadas de forma segura:*
 
+Implementé un inicio de sesión seguro donde las contraseñas se almacenan de forma protegida con bcrypt, evitando el almacenamiento en texto plano. Al autenticarse, el sistema compara los hashes en lugar de las contraseñas originales, asegurando una mayor protección contra accesos no autorizados.
 
 ### *Capturas de pantalla:*
 
+Se debe configurar la ruta donde está Apache
+
+![image4.jpeg](src/main/resources/images/image4.jpeg)
+
+Y configuración del puerto donde va escuchar el front
+
+![image17.jpeg](src/main/resources/images/image17.jpeg)
+
+Es importante primero inciar Apache:
+
+![image1.jpeg](src/main/resources/images/image1.jpeg)
+![image2.jpeg](src/main/resources/images/image2.jpeg)
+
+Comprobamos que Apache funcione:
+
+![image3.jpeg](src/main/resources/images/image3.jpeg)
+
+Se le da la ruta de nuestro proyecto Apache:
+
+![image12.jpeg](src/main/resources/images/image12.jpeg)
+![image13.jpeg](src/main/resources/images/image13.jpeg)
+
+Se debe conectar el front con el back
+
+![image 5.jpeg](src/main/resources/images/image%205.jpeg)
+
+Compilamos el proyecto back
+
+![image6.jpeg](src/main/resources/images/image6.jpeg)
+
+Se dockeriza el back con el front 
+
+![image7.jpeg](src/main/resources/images/image7.jpeg)
+![image8.jpeg](src/main/resources/images/image8.jpeg)
+![image9.jpeg](src/main/resources/images/image9.jpeg)
+
+Configuramos los puertos del docker
+
+![image10.jpeg](src/main/resources/images/image10.jpeg)
+
+Se verifica el push del Docker
+
+![image11.jpeg](src/main/resources/images/image11.jpeg)
+![image14.jpeg](src/main/resources/images/image14.jpeg)
+
+Se verifica que la ruta del Docker funcione:
+
+![image15.jpeg](src/main/resources/images/image15.jpeg)
+
+Es importante generar el certificado TLS para el front
+
+![image16.jpeg](src/main/resources/images/image16.jpeg)
+
+Se inician las instancias del EC2 y se configuran:
+
+![image18.jpeg](src/main/resources/images/image18.jpeg)
+![image19.jpeg](src/main/resources/images/image19.jpeg)
+![image20.jpeg](src/main/resources/images/image20.jpeg)
+![image21.jpeg](src/main/resources/images/image21.jpeg)
+
+Tendremos nuestro despliegue con la seguridad, según el certificado TLS
+
+![image22.jpeg](src/main/resources/images/image22.jpeg)
 
 ### *Video:*
 

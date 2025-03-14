@@ -1,8 +1,0 @@
-edu\escuelaing\app\Application.class
-edu\escuelaing\app\controllers\UserController.class
-edu\escuelaing\app\repositories\UserRepository.class
-edu\escuelaing\app\services\UserService.class
-edu\escuelaing\app\models\User.class
-edu\escuelaing\app\security\SecurityConfig.class
-edu\escuelaing\app\config\CorsConfig.class
-edu\escuelaing\app\config\CorsConfig$1.class
