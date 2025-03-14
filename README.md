@@ -162,6 +162,7 @@ Tendremos nuestro despliegue con la seguridad, según el certificado TLS
 
 ### *Video:*
 
+Video: [Video funcionamiento](https://youtu.be/99LdZeAXAZ0)
 
 ## Ejecutando las pruebas
 
